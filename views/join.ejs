@@ -2,7 +2,7 @@
     <h1>Join Us</h1>
 
     <% if (typeof success !== 'undefined' && success) { %>
-        <p class="form-success">Thanks for signing up! Someone from MCUF will reach out to you soon.</p>
+        <p class="form-success">Thanks for signing up! Someone from Makerere University Christian Union will reach out to you soon.</p>
     <% } else { %>
         <% if (typeof error !== 'undefined') { %><p class="form-error"><%= error %></p><% } %>
         <form action="/join" method="POST">

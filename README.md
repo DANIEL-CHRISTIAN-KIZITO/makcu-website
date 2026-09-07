@@ -1,4 +1,4 @@
-# MCUF Website
+# Makerere University Christian Union (MAK MAIN CU) Website
 
 Website for Makerere Christian Union Fellowship — Node.js + Express + EJS + PostgreSQL.
 
@@ -26,7 +26,7 @@ Website for Makerere Christian Union Fellowship — Node.js + Express + EJS + Po
 
 3. Create the database (if it doesn't exist yet):
    ```
-   createdb mcuf_db
+   createdb mak_cu_db
    ```
    Or via Docker/psql, whichever you already use for SBAFL.
 
@@ -42,7 +42,7 @@ Website for Makerere Christian Union Fellowship — Node.js + Express + EJS + Po
    Visit http://localhost:3000, and http://localhost:3000/admin/login for the admin panel.
 
 ## Still to do (marked with TODO in code)
-- **Branding**: drop your logo into `public/img/logo.png`, and update `--primary` / `--accent` colors in `public/css/style.css` to match MCUF's real palette.
+- **Branding**: drop your logo into `public/img/logo.png`, and update `--primary` / `--accent` colors in `public/css/style.css` to match MAK MAIN CU's real palette.
 - **Content**: fill in mission statement, statement of faith, leadership bios, and meeting time/location in `views/about.ejs`.
 - **Payment integration**: `views/give.ejs` and `routes/public.js` (`/give`, `/give/callback`) have the DB and route structure ready, but the actual Flutterwave/Paystack checkout widget still needs to be wired in — the code has comments marking exactly where.
 - **Social links**: add real links in `views/contact.ejs`.

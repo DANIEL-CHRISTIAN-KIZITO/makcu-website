@@ -53,5 +53,5 @@ app.use((req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`MCUF website running on http://localhost:${PORT}`);
+    console.log(`Makerere University Christian Union website running on http://localhost:${PORT}`);
 });

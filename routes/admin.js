@@ -133,7 +133,7 @@ router.get('/signups/export.csv', async (req, res) => {
         )
         .join('\n');
     res.setHeader('Content-Type', 'text/csv');
-    res.setHeader('Content-Disposition', 'attachment; filename=mcuf-signups.csv');
+    res.setHeader('Content-Disposition', 'attachment; filename=mak-cu-signups.csv');
     res.send(header + rows);
 });
 

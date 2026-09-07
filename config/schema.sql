@@ -1,4 +1,4 @@
--- MCUF Website Database Schema
+-- Makerere University Christian Union (MAK MAIN CU) Website Database Schema
 
 CREATE TABLE IF NOT EXISTS admins (
     id SERIAL PRIMARY KEY,
