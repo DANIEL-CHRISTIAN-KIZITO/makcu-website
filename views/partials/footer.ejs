@@ -1,6 +1,27 @@
 <footer class="site-footer">
     <div class="container">
         <p>&copy; <%= new Date().getFullYear() %> Makerere Christian Union Fellowship. All rights reserved.</p>
-        <p><a href="/admin/login">Admin</a></p>
+        <!-- Admin link hidden - use keyboard shortcut: Press Ctrl+Shift+A twice -->
     </div>
 </footer>
+
+<script>
+    // Hidden admin access: Press Ctrl+Shift+A twice within 2 seconds
+    let adminKeyCount = 0;
+    let adminKeyTimer = null;
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.shiftKey && e.code === 'KeyA') {
+            adminKeyCount++;
+            clearTimeout(adminKeyTimer);
+            
+            if (adminKeyCount === 2) {
+                window.location.href = '/admin/login';
+            }
+            
+            adminKeyTimer = setTimeout(() => {
+                adminKeyCount = 0;
+            }, 2000);
+        }
+    });
+</script>
