@@ -1,0 +1,15 @@
+<section class="container page">
+    <h1>Gallery</h1>
+    <% if (images.length === 0) { %>
+        <p>No photos posted yet.</p>
+    <% } else { %>
+        <div class="gallery-grid">
+            <% images.forEach(img => { %>
+                <div class="gallery-item">
+                    <img src="<%= img.image_path %>" alt="<%= img.title || 'MCUF photo' %>">
+                    <% if (img.title) { %><p><%= img.title %></p><% } %>
+                </div>
+            <% }) %>
+        </div>
+    <% } %>
+</section>

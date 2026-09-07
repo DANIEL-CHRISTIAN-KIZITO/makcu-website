@@ -1,0 +1,20 @@
+<section class="container page">
+    <h1>Contact Us</h1>
+
+    <% if (typeof success !== 'undefined' && success) { %>
+        <p class="form-success">Thanks for reaching out — we'll respond soon.</p>
+    <% } else { %>
+        <% if (typeof error !== 'undefined') { %><p class="form-error"><%= error %></p><% } %>
+        <form action="/contact" method="POST">
+            <label>Name<input type="text" name="name" required></label>
+            <label>Email<input type="email" name="email" required></label>
+            <label>Message<textarea name="message" rows="5" required></textarea></label>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    <% } %>
+
+    <div class="socials">
+        <!-- TODO: insert real social links -->
+        <a href="#">Instagram</a> &middot; <a href="#">Twitter/X</a> &middot; <a href="#">WhatsApp</a>
+    </div>
+</section>

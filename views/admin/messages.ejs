@@ -1,0 +1,9 @@
+<section class="page">
+    <h1>Contact Messages</h1>
+    <% messages.forEach(m => { %>
+        <div class="message-card">
+            <p><strong><%= m.name %></strong> &middot; <%= m.email %> &middot; <%= new Date(m.created_at).toLocaleString() %></p>
+            <p><%= m.message %></p>
+        </div>
+    <% }) %>
+</section>

@@ -1,0 +1,12 @@
+<section class="page">
+    <h1><%= event ? 'Edit Event' : 'New Event' %></h1>
+    <form action="<%= event ? '/admin/events/' + event.id + '?_method=PUT' : '/admin/events' %>" method="POST" enctype="multipart/form-data">
+        <label>Title<input type="text" name="title" value="<%= event ? event.title : '' %>" required></label>
+        <label>Description<textarea name="description" rows="5"><%= event ? event.description : '' %></textarea></label>
+        <label>Date<input type="date" name="event_date" value="<%= event ? event.event_date.toISOString().split('T')[0] : '' %>" required></label>
+        <label>Time<input type="text" name="event_time" placeholder="e.g. 5:00 PM" value="<%= event ? event.event_time : '' %>"></label>
+        <label>Location<input type="text" name="location" value="<%= event ? event.location : '' %>"></label>
+        <label>Image<input type="file" name="image" accept="image/*"></label>
+        <button type="submit" class="btn"><%= event ? 'Save Changes' : 'Create Event' %></button>
+    </form>
+</section>

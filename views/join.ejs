@@ -1,0 +1,31 @@
+<section class="container page">
+    <h1>Join Us</h1>
+
+    <% if (typeof success !== 'undefined' && success) { %>
+        <p class="form-success">Thanks for signing up! Someone from MCUF will reach out to you soon.</p>
+    <% } else { %>
+        <% if (typeof error !== 'undefined') { %><p class="form-error"><%= error %></p><% } %>
+        <form action="/join" method="POST">
+            <label>Full Name<input type="text" name="full_name" required></label>
+            <label>Email<input type="email" name="email" required></label>
+            <label>Phone<input type="tel" name="phone"></label>
+            <label>Year of Study
+                <select name="year_of_study">
+                    <option>Year 1</option><option>Year 2</option><option>Year 3</option>
+                    <option>Year 4</option><option>Year 5</option><option>Postgraduate</option>
+                </select>
+            </label>
+            <label>Hall / Residence<input type="text" name="hall_residence"></label>
+            <label>Interest Area
+                <select name="interest_area">
+                    <option value="small_group">Small Group / Cell</option>
+                    <option value="worship">Worship Team</option>
+                    <option value="outreach">Outreach</option>
+                    <option value="media">Media/Tech</option>
+                    <option value="other">Other</option>
+                </select>
+            </label>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+    <% } %>
+</section>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> | MCUF Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin-body">
+    <div class="admin-shell">
+        <aside class="admin-sidebar">
+            <h2>MCUF Admin</h2>
+            <nav>
+                <a href="/admin/dashboard">Dashboard</a>
+                <a href="/admin/events">Events</a>
+                <a href="/admin/gallery">Gallery</a>
+                <a href="/admin/signups">Sign-ups</a>
+                <a href="/admin/donations">Donations</a>
+                <a href="/admin/messages">Messages</a>
+                <% if (admin && admin.role === 'superadmin') { %>
+                    <a href="/admin/admins">Manage Admins</a>
+                <% } %>
+            </nav>
+            <form action="/admin/logout" method="POST">
+                <button type="submit" class="btn-logout">Log Out</button>
+            </form>
+        </aside>
+        <main class="admin-main">
+            <header class="admin-topbar">
+                <span>Logged in as <%= admin ? admin.name : '' %> (<%= admin ? admin.role : '' %>)</span>
+            </header>
+            <%- body %>
+        </main>
+    </div>
+</body>
+</html>

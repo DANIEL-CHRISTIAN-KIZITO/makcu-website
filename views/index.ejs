@@ -1,0 +1,29 @@
+<section class="hero">
+    <div class="container">
+        <h1>Makerere Christian Union Fellowship</h1>
+        <p>A community of Makerere University students growing together in Christ.</p>
+        <div class="hero-actions">
+            <a href="/about" class="btn">Who We Are</a>
+            <a href="/give" class="btn btn-outline">Give</a>
+        </div>
+    </div>
+</section>
+
+<section class="container upcoming-events">
+    <h2>Upcoming Events</h2>
+    <% if (events.length === 0) { %>
+        <p>No upcoming events posted yet. Check back soon.</p>
+    <% } else { %>
+        <div class="event-cards">
+            <% events.forEach(event => { %>
+                <div class="event-card">
+                    <h3><%= event.title %></h3>
+                    <p class="event-date"><%= new Date(event.event_date).toDateString() %> <% if (event.event_time) { %> &middot; <%= event.event_time %><% } %></p>
+                    <p><%= event.location %></p>
+                    <a href="/events/<%= event.id %>">Details &rarr;</a>
+                </div>
+            <% }) %>
+        </div>
+    <% } %>
+    <a href="/events" class="see-all">See all events &rarr;</a>
+</section>

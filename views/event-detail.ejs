@@ -1,0 +1,8 @@
+<section class="container page">
+    <a href="/events">&larr; Back to events</a>
+    <% if (event.image_path) { %><img src="<%= event.image_path %>" alt="<%= event.title %>" class="event-hero-img"><% } %>
+    <h1><%= event.title %></h1>
+    <p class="event-date"><%= new Date(event.event_date).toDateString() %> <% if (event.event_time) { %> &middot; <%= event.event_time %><% } %></p>
+    <p class="event-location"><%= event.location %></p>
+    <div class="event-description"><%= event.description %></div>
+</section>

@@ -1,0 +1,29 @@
+<section class="container page">
+    <h1>Give</h1>
+    <p>Support MCUF's ministry through the building fund, missions, or general giving. Payments are processed securely via mobile money or card.</p>
+
+    <% if (typeof error !== 'undefined') { %><p class="form-error"><%= error %></p><% } %>
+
+    <form action="/give" method="POST" id="give-form">
+        <label>Your Name<input type="text" name="donor_name"></label>
+        <label>Email<input type="email" name="donor_email" required></label>
+        <label>Amount (UGX)<input type="number" name="amount" min="1000" required></label>
+        <label>Purpose
+            <select name="purpose">
+                <option value="general">General Fund</option>
+                <option value="building">Building Fund</option>
+                <option value="missions">Missions</option>
+            </select>
+        </label>
+        <input type="hidden" name="transaction_ref" id="transaction_ref">
+        <button type="submit" class="btn">Give Now</button>
+    </form>
+
+    <!--
+        TODO: Wire up actual Flutterwave/Paystack checkout here.
+        Typical flow: user clicks "Give Now" -> open provider's inline checkout widget
+        (using flutterwavePublicKey passed from the route) -> on success, set transaction_ref
+        and submit this form (or call /give via fetch) to record the donation,
+        then rely on the /give/callback webhook to confirm status server-side.
+    -->
+</section>

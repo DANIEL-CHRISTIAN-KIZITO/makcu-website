@@ -1,0 +1,18 @@
+<section class="page">
+    <h1>Donations</h1>
+    <table class="admin-table">
+        <thead><tr><th>Donor</th><th>Email</th><th>Amount</th><th>Purpose</th><th>Status</th><th>Date</th></tr></thead>
+        <tbody>
+            <% donations.forEach(d => { %>
+                <tr>
+                    <td><%= d.donor_name || 'Anonymous' %></td>
+                    <td><%= d.donor_email %></td>
+                    <td><%= d.currency %> <%= d.amount %></td>
+                    <td><%= d.purpose %></td>
+                    <td><span class="status-<%= d.status %>"><%= d.status %></span></td>
+                    <td><%= new Date(d.created_at).toLocaleDateString() %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</section>

@@ -1,0 +1,27 @@
+<section class="page">
+    <h1>Gallery</h1>
+
+    <form action="/admin/gallery" method="POST" enctype="multipart/form-data" class="inline-form">
+        <label>Title<input type="text" name="title"></label>
+        <label>Related Event
+            <select name="event_id">
+                <option value="">None</option>
+                <% events.forEach(e => { %><option value="<%= e.id %>"><%= e.title %></option><% }) %>
+            </select>
+        </label>
+        <label>Image<input type="file" name="image" accept="image/*" required></label>
+        <button type="submit" class="btn">Upload</button>
+    </form>
+
+    <div class="gallery-grid admin-gallery-grid">
+        <% images.forEach(img => { %>
+            <div class="gallery-item">
+                <img src="<%= img.image_path %>" alt="<%= img.title || '' %>">
+                <p><%= img.title || '(untitled)' %><% if (img.event_title) { %> &middot; <%= img.event_title %><% } %></p>
+                <form action="/admin/gallery/<%= img.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Delete this image?')">
+                    <button type="submit" class="link-danger">Delete</button>
+                </form>
+            </div>
+        <% }) %>
+    </div>
+</section>

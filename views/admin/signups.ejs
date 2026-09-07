@@ -1,0 +1,22 @@
+<section class="page">
+    <div class="page-header">
+        <h1>Sign-ups</h1>
+        <a href="/admin/signups/export.csv" class="btn">Export CSV</a>
+    </div>
+    <table class="admin-table">
+        <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Year</th><th>Hall</th><th>Interest</th><th>Date</th></tr></thead>
+        <tbody>
+            <% signups.forEach(s => { %>
+                <tr>
+                    <td><%= s.full_name %></td>
+                    <td><%= s.email %></td>
+                    <td><%= s.phone %></td>
+                    <td><%= s.year_of_study %></td>
+                    <td><%= s.hall_residence %></td>
+                    <td><%= s.interest_area %></td>
+                    <td><%= new Date(s.created_at).toLocaleDateString() %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</section>

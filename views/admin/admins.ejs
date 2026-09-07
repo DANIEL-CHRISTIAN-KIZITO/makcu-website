@@ -1,0 +1,37 @@
+<section class="page">
+    <h1>Manage Admins</h1>
+
+    <table class="admin-table">
+        <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Actions</th></tr></thead>
+        <tbody>
+            <% admins.forEach(a => { %>
+                <tr>
+                    <td><%= a.name %></td>
+                    <td><%= a.email %></td>
+                    <td><%= a.role %></td>
+                    <td>
+                        <% if (a.id !== admin.id) { %>
+                            <form action="/admin/admins/<%= a.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Remove this admin?')">
+                                <button type="submit" class="link-danger">Remove</button>
+                            </form>
+                        <% } else { %>(you)<% } %>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <h2>Add New Admin</h2>
+    <form action="/admin/admins" method="POST">
+        <label>Name<input type="text" name="name" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Password<input type="password" name="password" required minlength="8"></label>
+        <label>Role
+            <select name="role">
+                <option value="editor">Editor</option>
+                <option value="superadmin">Superadmin</option>
+            </select>
+        </label>
+        <button type="submit" class="btn">Add Admin</button>
+    </form>
+</section>

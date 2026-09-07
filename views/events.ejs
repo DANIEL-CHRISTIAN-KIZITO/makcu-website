@@ -1,0 +1,17 @@
+<section class="container page">
+    <h1>Events</h1>
+    <% if (events.length === 0) { %>
+        <p>No events posted yet.</p>
+    <% } else { %>
+        <div class="event-cards">
+            <% events.forEach(event => { %>
+                <div class="event-card">
+                    <% if (event.image_path) { %><img src="<%= event.image_path %>" alt="<%= event.title %>"><% } %>
+                    <h3><%= event.title %></h3>
+                    <p class="event-date"><%= new Date(event.event_date).toDateString() %></p>
+                    <a href="/events/<%= event.id %>">Details &rarr;</a>
+                </div>
+            <% }) %>
+        </div>
+    <% } %>
+</section>
