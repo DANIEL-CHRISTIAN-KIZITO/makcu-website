@@ -1,7 +1,7 @@
 {
   "name": "mak-cu-website",
   "version": "1.0.0",
-  "description": "Makerere Christian Union Fellowship website",
+  "description": "Makerere University Christian Union website",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

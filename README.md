@@ -1,6 +1,6 @@
 # Makerere University Christian Union (MAK MAIN CU) Website
 
-Website for Makerere Christian Union Fellowship — Node.js + Express + EJS + PostgreSQL.
+Website for Makerere University Christian Union — Node.js + Express + EJS + PostgreSQL.
 
 ## Features
 - Public pages: Home, About, Events, Give (donations), Join (sign-up), Gallery, Contact
