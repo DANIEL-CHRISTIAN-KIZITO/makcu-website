@@ -1,27 +1,27 @@
 <footer class="site-footer">
     <div class="container">
-        <p>&copy; <%= new Date().getFullYear() %> Makerere Christian Union Fellowship. All rights reserved.</p>
-        <!-- Admin link hidden - use keyboard shortcut: Press Ctrl+Shift+A twice -->
+        <p id="footer-copyright" style="cursor: pointer;">&copy; <%= new Date().getFullYear() %> Makerere Christian Union Fellowship. All rights reserved.</p>
+        <!-- Admin access: Click the copyright symbol (©) 3 times quickly -->
     </div>
 </footer>
 
 <script>
-    // Hidden admin access: Press Ctrl+Shift+A twice within 2 seconds
-    let adminKeyCount = 0;
-    let adminKeyTimer = null;
+    // Hidden admin access: Click the copyright (©) symbol 3 times within 2 seconds
+    let clickCount = 0;
+    let clickTimer = null;
+    const footerCopyright = document.getElementById('footer-copyright');
     
-    document.addEventListener('keydown', function(e) {
-        if (e.ctrlKey && e.shiftKey && e.code === 'KeyA') {
-            adminKeyCount++;
-            clearTimeout(adminKeyTimer);
-            
-            if (adminKeyCount === 2) {
-                window.location.href = '/admin/login';
-            }
-            
-            adminKeyTimer = setTimeout(() => {
-                adminKeyCount = 0;
-            }, 2000);
+    footerCopyright.addEventListener('click', function() {
+        clickCount++;
+        clearTimeout(clickTimer);
+        
+        if (clickCount === 3) {
+            window.location.href = '/admin/login';
+            clickCount = 0;
         }
+        
+        clickTimer = setTimeout(() => {
+            clickCount = 0;
+        }, 2000);
     });
 </script>
