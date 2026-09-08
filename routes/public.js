@@ -16,6 +16,11 @@ router.get('/about', (req, res) => {
     res.render('about', { title: 'About Us' });
 });
 
+// Organization Profile
+router.get('/profile', (req, res) => {
+    res.render('profile', { title: 'Organization Profile' });
+});
+
 // Events list
 router.get('/events', async (req, res) => {
     const result = await pool.query('SELECT * FROM events ORDER BY event_date ASC');
