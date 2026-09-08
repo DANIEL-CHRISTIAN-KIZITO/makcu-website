@@ -57,12 +57,21 @@ body {
     color: var(--accent);
 }
 .btn-give { 
-    background: var(--secondary); 
-    padding: 8px 16px; 
-    border-radius: 20px;
+    background: linear-gradient(135deg, var(--accent) 0%, #FFA500 100%);
+    color: #333;
+    padding: 10px 20px; 
+    border-radius: 25px;
     border: none;
     cursor: pointer;
     transition: all 0.3s;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+ .btn-give:hover { 
+    background: linear-gradient(135deg, #FFA500 0%, var(--accent) 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+}
 }
 .btn-give:hover { 
     background: #ff1744;
@@ -159,35 +168,37 @@ body {
     gap: 30px;
     margin: 40px 0;
 }
-.stat-card {
-    background: var(--light-bg);
-    padding: 30px 20px;
-    border-radius: 12px;
-    text-align: center;
-    transition: all 0.3s;
-    border: 2px solid transparent;
-}
-.stat-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 61, 130, 0.15);
-}
-.stat-number {
-    font-size: 2.8em;
-    font-weight: bold;
-    color: var(--primary);
-    margin-bottom: 10px;
-}
-.stat-label {
-    font-size: 1.1em;
-    color: #666;
-    font-weight: 600;
-}
-
-/* Sections */
-.page, .upcoming-events {
-    padding: 60px 0;
-}
+@@.btn { 
+@@    display: inline-block; 
+@@    background: linear-gradient(135deg, var(--accent) 0%, #FFA500 100%);
+@@    color: #333; 
+@@    padding: 14px 32px; 
+@@    border-radius: 25px; 
+@@    text-decoration: none; 
+@@    border: 2px solid var(--accent);
+@@    cursor: pointer; 
+@@    font-size: 1em;
+@@    font-weight: 600;
+@@    transition: all 0.3s ease;
+@@    margin-right: 12px;
+@@    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+@@}
+@@.btn:hover { 
+@@    background: linear-gradient(135deg, #FFA500 0%, var(--accent) 100%);
+@@    border-color: #FFB700;
+@@    transform: translateY(-4px);
+@@    box-shadow: 0 12px 30px rgba(255, 215, 0, 0.5);
+@@}
+@@.btn-outline { 
+@@    background: transparent; 
+@@    border: 2px solid #fff;
+@@    color: #fff;
+@@}
+@@.btn-outline:hover { 
+@@    background: var(--accent);
+@@    border-color: var(--accent);
+@@    color: #333;
+@@}
 .page h1, .upcoming-events h2 { 
     margin-bottom: 20px;
     color: var(--primary);
