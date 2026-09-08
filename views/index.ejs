@@ -1,29 +1,83 @@
 <section class="hero">
     <div class="container">
         <h1>Makerere University Christian Union</h1>
-        <p>A community of Makerere University students growing together in Christ.</p>
+        <p>A community of Makerere University students growing together in Christ</p>
         <div class="hero-actions">
-            <a href="/about" class="btn">Who We Are</a>
-            <a href="/give" class="btn btn-outline">Give</a>
+            <a href="/profile" class="btn">Our Story</a>
+            <a href="/about" class="btn btn-outline">Learn More</a>
         </div>
     </div>
 </section>
 
-<section class="container upcoming-events">
-    <h2>Upcoming Events</h2>
-    <% if (events.length === 0) { %>
-        <p>No upcoming events posted yet. Check back soon.</p>
-    <% } else { %>
-        <div class="event-cards">
-            <% events.forEach(event => { %>
-                <div class="event-card">
-                    <h3><%= event.title %></h3>
-                    <p class="event-date"><%= new Date(event.event_date).toDateString() %> <% if (event.event_time) { %> &middot; <%= event.event_time %><% } %></p>
-                    <p><%= event.location %></p>
-                    <a href="/events/<%= event.id %>">Details &rarr;</a>
-                </div>
-            <% }) %>
+<!-- Statistics Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">1962</div>
+                <div class="stat-label">Founded</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">26+</div>
+                <div class="stat-label">Active Fellowships</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3,500+</div>
+                <div class="stat-label">Campus Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">70+</div>
+                <div class="stat-label">Nations Represented</div>
+            </div>
         </div>
-    <% } %>
-    <a href="/events" class="see-all">See all events &rarr;</a>
+    </div>
+</section>
+
+<!-- Upcoming Events Section -->
+<section class="upcoming-events">
+    <div class="container">
+        <h2>Upcoming Events</h2>
+        <% if (events && events.length > 0) { %>
+            <div class="event-cards">
+                <% events.forEach(event => { %>
+                    <div class="event-card">
+                        <% if (event.image_path) { %>
+                            <img src="<%= event.image_path %>" alt="<%= event.title %>">
+                        <% } else { %>
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop" alt="<%= event.title %>">
+                        <% } %>
+                        <h3><%= event.title %></h3>
+                        <p class="event-date">📅 <%= new Date(event.event_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
+                        <% if (event.event_time) { %>
+                            <p>🕐 <%= event.event_time %></p>
+                        <% } %>
+                        <% if (event.location) { %>
+                            <p>📍 <%= event.location %></p>
+                        <% } %>
+                        <% if (event.description) { %>
+                            <p><%= event.description.substring(0, 100) %>...</p>
+                        <% } %>
+                        <a href="/events/<%= event.id %>" class="btn" style="display: inline-block; padding: 8px 16px; font-size: 0.9em; margin-top: 12px;">View Details →</a>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p style="text-align: center; font-size: 1.1em; color: #666; padding: 40px 0;">No upcoming events posted yet. Check back soon for our exciting activities!</p>
+        <% } %>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="/events" class="see-all">View All Events →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Mission Section -->
+<section class="container page">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2>Our Mission</h2>
+        <p style="font-size: 1.1em; line-height: 1.8; color: #555;">
+            To proclaim the lordship of Jesus Christ among students through Bible-based teaching, discipleship, prayer, 
+            fellowship, and evangelism, enabling them to grow in the Christian faith, character and service.
+        </p>
+        <h3 style="margin-top: 40px; color: #003D82;">Preaching Christ and Ministering God's Love on Campus</h3>
+    </div>
 </section>
