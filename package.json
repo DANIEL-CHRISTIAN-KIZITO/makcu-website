@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Makerere University Christian Union website",
   "main": "app.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",

@@ -13,6 +13,10 @@ const adminRoutes = require('./routes/admin');
 
 const app = express();
 
+if (process.env.NODE_ENV === 'production') {
+    app.set('trust proxy', 1); // needed so secure cookies work behind Render's HTTPS-terminating proxy
+}
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
