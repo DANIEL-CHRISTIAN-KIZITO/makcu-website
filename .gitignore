@@ -4,6 +4,11 @@ node_modules/
 .env.*.local
 public/uploads/*
 !public/uploads/.gitkeep
+!public/uploads/event-default.jpg
+!public/uploads/gallery-sample.jpg
+
+# Raw/unedited photo dump - only the curated, renamed copies in public/img are used by the site
+images/
 
 # Logs
 npm-debug.log*

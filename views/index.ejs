@@ -1,10 +1,57 @@
 <section class="hero">
+    <!-- Full-bleed image slideshow behind the headline -->
+    <div class="hero-slideshow" aria-hidden="true">
+        <div class="hero-slide" style="background-image:url('/img/fellowship-classroom.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('/img/mission-speaker.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('/img/mission-community.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('/img/scripture-disciples.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('/img/fellowship-conversation.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('/img/mission-outreach-team.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('/img/fellowship-leaders.jpg')"></div>
+    </div>
+    <div class="hero-veil" aria-hidden="true"></div>
     <div class="container">
-        <h1>Makerere University Christian Union</h1>
+        <h1 class="hero-title">
+            <span class="word">Makerere</span> <span class="word">University</span>
+            <span class="word word-accent">Christian</span> <span class="word word-accent">Union</span>
+        </h1>
         <p>A community of Makerere University students growing together in Christ</p>
         <div class="hero-actions">
             <a href="/profile" class="btn">Our Story</a>
             <a href="/about" class="btn btn-outline">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Weekly Programs Section -->
+<section class="weekly-programs">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Our Weekly Programs</h2>
+            <p>Join us on campus throughout the week - everyone is welcome</p>
+        </div>
+        <div class="program-grid">
+            <div class="program-card">
+                <img class="program-icon" src="/img/fellowship-classroom.jpg" alt="Students worshipping during lunch hour fellowship">
+                <div class="program-days">Tuesdays &amp; Fridays</div>
+                <h3>Lunch Hour Fellowship</h3>
+                <div class="program-time">12:45 PM - 2:00 PM</div>
+                <p>A midday session of worship and the Word to refresh your spirit between classes.</p>
+            </div>
+            <div class="program-card">
+                <img class="program-icon" src="/img/mission-evening-worship.jpg" alt="A student in prayer during the prayer altar">
+                <div class="program-days">Tuesdays &amp; Thursdays</div>
+                <h3>Prayer Altar</h3>
+                <div class="program-time">5:00 PM - 8:00 PM</div>
+                <p>An evening of united prayer, seeking God's face for the campus, the nation and one another.</p>
+            </div>
+            <div class="program-card">
+                <img class="program-icon" src="/img/mission-outreach-speaker.jpg" alt="A missioner preaching during campus evangelism">
+                <div class="program-days">Saturdays</div>
+                <h3>Campus Evangelism</h3>
+                <div class="program-time">Evangelism training 11:00 AM - 12:00 PM</div>
+                <p>Training followed by outreach around and inside campus, sharing the gospel with fellow students.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -41,11 +88,14 @@
             <div class="event-cards">
                 <% events.forEach(event => { %>
                     <div class="event-card">
-                        <% if (event.image_path) { %>
-                            <img src="<%= event.image_path %>" alt="<%= event.title %>">
-                        <% } else { %>
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop" alt="<%= event.title %>">
-                        <% } %>
+                        <div class="event-poster">
+                            <span class="event-poster-tag">Upcoming Event</span>
+                            <% if (event.image_path) { %>
+                                <img src="<%= event.image_path %>" alt="<%= event.title %>">
+                            <% } else { %>
+                                <img src="/img/mission-evening-worship.jpg" alt="<%= event.title %>">
+                            <% } %>
+                        </div>
                         <h3><%= event.title %></h3>
                         <p class="event-date">📅 <%= new Date(event.event_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
                         <% if (event.event_time) { %>

@@ -16,9 +16,9 @@ router.get('/about', (req, res) => {
     res.render('about', { title: 'About Us' });
 });
 
-// Organization Profile
+// Fellowship Profile
 router.get('/profile', (req, res) => {
-    res.render('profile', { title: 'Organization Profile' });
+    res.render('profile', { title: 'Fellowship Profile' });
 });
 
 // Events list
